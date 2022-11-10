@@ -1,0 +1,27 @@
+.modal-container {
+    background-color: var(--bg-overlay);
+    border: 2px solid var(--light-gray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+}
+
+
+.form-wrapper {
+    width: min(90vw, 480px);
+    background: var(--white);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-actions {
+    justify-content: flex-end;
+    padding: 1rem;
+}
