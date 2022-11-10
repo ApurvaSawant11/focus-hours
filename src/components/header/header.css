@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+header {
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0.7rem;
+    border-radius: 0 0 10px 10px;
+    background: var(--white);
+    box-shadow: 0 4px 12px 0 var(--dark-blue);
+}
+
+.logo {
+    align-items: center;
+}
+
+.logo-name {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
