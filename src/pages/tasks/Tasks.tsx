@@ -1,69 +1,102 @@
 import "./tasks.css";
 import { useNavigate } from "react-router-dom";
-import { DeleteIcon, EditIcon } from "../../assets";
+import { DeleteIcon, EditIcon } from "assets";
+import { useTaskData, useTaskModal } from "context";
+import { TaskModal } from "components";
+import { deleteTask } from "services";
+import { DELETE_TASK } from "data/constants";
 
 const Tasks = () => {
   const navigate = useNavigate();
+  const {
+    initialTaskModalData,
+    setTaskModalData,
+    modalToggle,
+    setModalToggle,
+  } = useTaskModal();
+  const { taskData, taskDataDispatch, getTaskById } = useTaskData();
 
   return (
     <main className="tasks-container">
       <section className="greetings">
         <h2>Welcome back, Apurva !</h2>
-        <p>You have 3 tasks to complete.</p>
+        <p>You have {taskData.length} tasks to complete.</p>
       </section>
 
       <section className="task-list-container">
         <div className="task-list-header flex-row width-100 ">
           <span>Tasks</span>
-          <button className="add-task-btn btn"> + Add</button>
-        </div>
-
-        <div className="task-list width-100">
-          <li
-            className="task-item"
+          <button
+            className="add-task-btn btn"
             onClick={() => {
-              navigate(`/timer/1234`);
+              setModalToggle((modal) => ({
+                ...modal,
+                displayModal: true,
+                type: "add",
+              }));
+              setTaskModalData({ ...initialTaskModalData });
             }}
           >
-            <p>Add testing to 1 project</p>
-
-            <div className="task-actions">
-              <button className="btn edit-btn">
-                <EditIcon size={24} />
-              </button>
-              <button className="btn delete-btn">
-                <DeleteIcon size={24} color="#f94242" />
-              </button>
-            </div>
-          </li>
-
-          <li className="task-item">
-            <p>Add testing to 1 project</p>
-
-            <div className="task-actions">
-              <button className="btn edit-btn">
-                <EditIcon size={24} />
-              </button>
-              <button className="btn delete-btn">
-                <DeleteIcon size={24} color="#f94242" />
-              </button>
-            </div>
-          </li>
-
-          <li className="task-item">
-            <p>Add testing to 1 project</p>
-
-            <div className="task-actions">
-              <button className="btn edit-btn">
-                <EditIcon size={24} />
-              </button>
-              <button className="btn delete-btn">
-                <DeleteIcon size={24} color="#f94242" />
-              </button>
-            </div>
-          </li>
+            {" "}
+            + Add
+          </button>
         </div>
+
+        <ul className="task-list width-100">
+          {taskData.length === 0 && (
+            <div className="text-center p-1">
+              You don't have any tasks pending!
+            </div>
+          )}
+
+          {taskData.map((task) => {
+            return (
+              <li
+                key={task._id}
+                className="task-item"
+                onClick={() => {
+                  navigate(`/timer/${task._id}`);
+                }}
+              >
+                <p>{task.taskName}</p>
+
+                <div className="task-actions">
+                  <button
+                    className="btn edit-btn"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setModalToggle((modal) => ({
+                        ...modal,
+                        displayModal: true,
+                        type: "update",
+                      }));
+                      const taskData = getTaskById(task._id);
+
+                      if (taskData) {
+                        setTaskModalData({ ...taskData });
+                      }
+                    }}
+                  >
+                    <EditIcon size={24} />
+                  </button>
+                  <button
+                    className="btn delete-btn"
+                    onClick={async (e) => {
+                      e.stopPropagation();
+                      taskDataDispatch({ type: DELETE_TASK, payload: task });
+                      await deleteTask(task._id);
+                    }}
+                  >
+                    <DeleteIcon size={24} color="#f94242" />
+                  </button>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
       </section>
+
+      {modalToggle.displayModal ? <TaskModal /> : <></>}
     </main>
   );
 };

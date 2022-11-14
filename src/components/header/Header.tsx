@@ -1,5 +1,5 @@
 import "./header.css";
-import { GithubIcon, logo } from "../../assets";
+import { GithubIcon, logo } from "assets";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header className="flex-row">
       <div className="flex-row logo">
-        <img src={logo} />
+        <img src={logo} alt="" />
         <div
           className="logo-name cursor-pointer"
           onClick={() => {
@@ -17,7 +17,15 @@ const Header = () => {
           Focus Hours
         </div>
       </div>
-      <GithubIcon size={38} />
+
+      <a
+        href="https://github.com/ApurvaSawant11"
+        className="link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <GithubIcon size={38} />
+      </a>
     </header>
   );
 };

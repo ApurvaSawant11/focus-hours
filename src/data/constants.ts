@@ -1,0 +1,7 @@
+// Task related constants
+const GET_TASK_DATA = "GET_TASK_DATA";
+const CREATE_TASK = "CREATE_TASK";
+const UPDATE_TASK = "UPDATE_TASK";
+const DELETE_TASK = "DELETE_TASK";
+
+export { GET_TASK_DATA, CREATE_TASK, UPDATE_TASK, DELETE_TASK };

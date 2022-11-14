@@ -21,7 +21,23 @@
     flex-direction: column;
 }
 
+.form-header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
 .modal-actions {
     justify-content: flex-end;
     padding: 1rem;
+}
+
+.cancel-btn {
+    border: 1px solid var(--red);
+    color: var(--red);
+    border-radius: 0.5rem;
+    padding: 0 1rem;
+    margin-right: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    height: 2.5rem;
 }

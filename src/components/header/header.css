@@ -17,3 +17,7 @@ header {
     font-size: 1.8rem;
     font-weight: bold;
 }
+
+.link {
+    color: var(--dark-blue);
+}
