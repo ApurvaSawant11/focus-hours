@@ -6,14 +6,14 @@
     --light-blue: #f0fff4;
     --yellow: #f3af29;
     --green: #48f046;
+    --red: #f94242;
     --white: #ffffff;
     --black: #0f0f0f;
     --gray: #5d5d5d;
     --light-gray: #d3d3d3;
     --bg-overlay: #80808061;
-    --default-ring: #ffffff;
-    --blue-ring: #161d6F;
-    --green-ring: #48f046;
+    --transparent: #ffffff26;
+    --text-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     --timer-gradient: radial-gradient( 71.4% 71.4% at 51.7% 28.6%,#e9fffd 0%,#affff9 100%  );
 }
 
@@ -66,11 +66,22 @@
     background: transparent;
 }
 
+label {
+    font-size: 0.9rem;
+}
+
 .input {
     border: none;
     border-bottom: 1px solid var(--light-gray);
     outline: none;
     padding: 0.5rem;
-    margin: 1rem 0;
+    margin: 0.5rem 0 1rem;
+}
 
+.gray-text {
+    color: var(--gray);
+}
+
+.text-center {
+    text-align: center;
 }

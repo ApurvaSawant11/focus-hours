@@ -1,7 +1,7 @@
-import "./App.css";
+import "App.css";
 import { Routes, Route } from "react-router-dom";
-import { NotFound404, Tasks, TaskTimer } from "./pages";
-import { Header } from "./components";
+import { NotFound404, Tasks, TaskTimer } from "pages";
+import { Header } from "components";
 
 function App() {
   return (
