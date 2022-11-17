@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Task } from "data";
+import { Task } from "types";
 
 const getErrorMessage = (error: unknown): string => {
   if (error instanceof Error) {

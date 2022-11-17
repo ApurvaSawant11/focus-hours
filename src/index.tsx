@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { makeServer } from "./server";
 import App from "./App";
-import { TaskDataProvider, TaskModalToggle } from "context";
+import { TaskDataProvider, TaskModalToggle, ThemeProvider } from "context";
 
 // Call make Server
 makeServer();
@@ -14,11 +14,13 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <TaskDataProvider>
-        <TaskModalToggle>
-          <App />
-        </TaskModalToggle>
-      </TaskDataProvider>
+      <ThemeProvider>
+        <TaskDataProvider>
+          <TaskModalToggle>
+            <App />
+          </TaskModalToggle>
+        </TaskDataProvider>
+      </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

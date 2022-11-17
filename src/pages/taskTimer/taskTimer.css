@@ -1,7 +1,6 @@
 .task-timer-container {
     border: 2px solid var(--light-gray);
     border-radius: 0.5rem;
-    background: var(--white);
     padding: 1.5rem;
     margin: 3rem auto 0;
     width: 70%;

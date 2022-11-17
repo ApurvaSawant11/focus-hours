@@ -1,13 +1,13 @@
 import { initialTaskData } from "context";
 import { taskDataReducer } from "./taskData.reducer";
 
-import { TaskState, TaskAction } from "data";
+import { TaskState, TaskAction } from "types";
 import {
   GET_TASK_DATA,
   CREATE_TASK,
   DELETE_TASK,
   UPDATE_TASK,
-} from "data/constants";
+} from "types/constants";
 
 describe("test task actions", () => {
   it("should save tasks created by the user", () => {

@@ -1,9 +1,9 @@
 import { useReducer, useEffect, useContext, createContext } from "react";
-import { GET_TASK_DATA } from "data/constants";
+import { GET_TASK_DATA } from "types/constants";
 import { getTaskData } from "services";
 import { taskDataReducer } from "reducer/taskData.reducer";
-import { Task, TaskState } from "data";
-import { TaskContext } from "./taskContext.types";
+import { TaskState } from "types";
+import { TaskContext } from "types";
 
 const TaskDataContext = createContext<TaskContext>({
   taskData: [],
@@ -21,8 +21,8 @@ const TaskDataProvider = ({ children }: { children: React.ReactNode }) => {
     initialTaskData
   );
 
-  const getTaskById = (taskId: string): Task | undefined => {
-    return taskData.find((task) => task._id === taskId);
+  const getTaskById = (taskId: string) => {
+    return taskData.find((task: any) => task._id === taskId);
   };
 
   useEffect(() => {

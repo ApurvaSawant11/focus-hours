@@ -14,7 +14,7 @@
     border-radius: 0.5rem;
     padding: 1.5rem;
     min-height: 20rem;
-    background: var(--white);
+    background: var(--bg-dark);
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
@@ -61,6 +61,7 @@
 
 .edit-btn {
     padding-right: 1rem;
+    color: var(--theme-text-color);
 }
 
 @media screen and (max-width: 620px) {

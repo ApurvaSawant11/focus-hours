@@ -2,7 +2,7 @@ import "./taskModal.css";
 import { useTaskModal, useTaskData } from "context";
 
 import { createTask, updateTask } from "services";
-import { CREATE_TASK, UPDATE_TASK } from "data/constants";
+import { CREATE_TASK, UPDATE_TASK } from "types/constants";
 
 const TaskModal = () => {
   const { taskModalData, setTaskModalData, modalToggle, setModalToggle } =

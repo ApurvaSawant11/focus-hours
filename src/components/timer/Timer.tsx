@@ -2,9 +2,8 @@ import "./timer.css";
 import { useState, useCallback, useEffect } from "react";
 import { useDocumentTitle, useInterval } from "hooks";
 import { secondsToMinutes } from "utils";
-import { Task } from "data";
 
-const Timer = ({ taskData }: { taskData: Task }) => {
+const Timer = ({ taskData }: { taskData: any }) => {
   const { focusDuration, breakDuration } = taskData;
   const [currentTime, setCurrentTime] = useState(focusDuration * 60);
   const [timeCounting, setTimeCounting] = useState(false);
@@ -15,7 +14,7 @@ const Timer = ({ taskData }: { taskData: Task }) => {
     end: 1,
   });
   const [conicGradient, setConicGradient] = useState("");
-  let degTravel = 360 / progress.end;
+  let degTravel: any = 360 / progress.end;
 
   useDocumentTitle(secondsToMinutes(currentTime), taskData.taskName);
 

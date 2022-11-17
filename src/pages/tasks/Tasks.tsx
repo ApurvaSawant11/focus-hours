@@ -4,7 +4,7 @@ import { DeleteIcon, EditIcon } from "assets";
 import { useTaskData, useTaskModal } from "context";
 import { TaskModal } from "components";
 import { deleteTask } from "services";
-import { DELETE_TASK } from "data/constants";
+import { DELETE_TASK } from "types/constants";
 
 const Tasks = () => {
   const navigate = useNavigate();
@@ -49,7 +49,7 @@ const Tasks = () => {
             </div>
           )}
 
-          {taskData.map((task) => {
+          {taskData.map((task: any) => {
             return (
               <li
                 key={task._id}

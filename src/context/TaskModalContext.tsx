@@ -1,6 +1,6 @@
 import { useState, useContext, createContext } from "react";
-import { Task } from "data";
-import { ModalToggle, TaskModalCtxt } from "./taskContext.types";
+import { Task } from "types";
+import { ModalToggle, TaskModalCtxt } from "types";
 
 const TaskModalContext = createContext<TaskModalCtxt>({
   initialTaskModalData: {

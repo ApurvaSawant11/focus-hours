@@ -14,7 +14,7 @@
 
 .form-wrapper {
     width: min(90vw, 480px);
-    background: var(--white);
+    background: var(--bg-dark);
     border-radius: 0.5rem;
     padding: 1rem;
     display: flex;

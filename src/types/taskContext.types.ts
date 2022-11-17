@@ -1,4 +1,4 @@
-import { Task, TaskAction } from "data";
+import { Task, TaskAction } from "types";
 
 export type TaskContext = {
   taskData: Task[];

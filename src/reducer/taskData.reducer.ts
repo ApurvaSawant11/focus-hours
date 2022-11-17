@@ -1,12 +1,12 @@
 import { initialTaskData } from "context";
 
-import { TaskState, TaskAction } from "data";
+import { TaskState, TaskAction } from "types";
 import {
   GET_TASK_DATA,
   CREATE_TASK,
   DELETE_TASK,
   UPDATE_TASK,
-} from "data/constants";
+} from "types/constants";
 
 const taskDataReducer = (
   state: TaskState = initialTaskData,
