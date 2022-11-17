@@ -5,8 +5,12 @@ jest.mock("axios");
 
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
-// Arrange Act Assert
+// setup and teardown method
+beforeEach(() => {
+  jest.clearAllMocks();
+});
 
+// Arrange Act Assert
 describe("Get Task Service", () => {
   it("should return user's tasks", async () => {
     mockedAxios.get.mockResolvedValue({
@@ -84,6 +88,7 @@ describe("Create Task Service", () => {
     const tasks = await createTask(newTask);
 
     expect(tasks).toEqual({ errorMessage: "Couldn't create a task" });
+    expect(axios.isAxiosError).toBeCalledTimes(2);
   });
 });
 
@@ -120,6 +125,7 @@ describe("Update Task Service", () => {
     const tasks = await updateTask(updatedTask);
 
     expect(tasks).toEqual({ errorMessage: "Couldn't update task" });
+    expect(axios.isAxiosError).toBeCalledTimes(2);
   });
 });
 
@@ -142,5 +148,6 @@ describe("Delete Task Service", () => {
     const tasks = await deleteTask("1");
 
     expect(tasks).toEqual({ errorMessage: "Couldn't delete task" });
+    expect(axios.isAxiosError).toBeCalledTimes(2);
   });
 });
